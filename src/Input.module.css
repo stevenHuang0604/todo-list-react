@@ -1,0 +1,12 @@
+.inputContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.input {
+  font-size: 1.6rem;
+  font-weight: 500;
+  width: 20%;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid var(--color-grey-700);
+}

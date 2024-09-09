@@ -1,0 +1,19 @@
+.button {
+  border: none;
+}
+
+/* size */
+.small {
+  padding: 1rem;
+}
+
+/* type */
+.primary {
+  color: var(--color-grey-100);
+  background-color: var(--color-brand-600);
+  transition: all 0.2s;
+}
+
+.primary:focus {
+  background-color: var(--color-brand-500);
+}

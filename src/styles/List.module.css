@@ -1,0 +1,10 @@
+.list {
+  width: 20%;
+
+  margin-top: 4rem;
+  border: 2px solid var(--color-grey-400);
+  border-radius: var(--border-radius-sm);
+
+  display: flex;
+  justify-content: center;
+}

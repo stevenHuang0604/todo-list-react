@@ -1,4 +1,4 @@
-import styles from './Button.module.css';
+import styles from '../styles/Button.module.css';
 
 function Button({ size, type, children }) {
   return <button className={`${styles.button} ${styles[size]} ${styles[type]}`}>{children}</button>;

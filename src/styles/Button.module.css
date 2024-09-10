@@ -4,14 +4,17 @@
 
 /* size */
 .small {
+  font-size: 1.8rem;
+  letter-spacing: 0.25px;
   padding: 1rem;
+  border-radius: var(--border-radius-sm);
 }
 
 /* type */
 .primary {
   color: var(--color-grey-100);
   background-color: var(--color-brand-600);
-  transition: all 0.2s;
+  transition: all 0.5s;
 }
 
 .primary:focus {

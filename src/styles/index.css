@@ -102,19 +102,16 @@ html {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  user-select: none;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: var(--color-grey-700);
 
   min-height: 100vh;
   max-width: 100vw;
   line-height: 1.5;
   transition: color 0.3s, background-color 0.3s;
-
-  text-align: center;
 }
 
 input,

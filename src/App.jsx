@@ -1,20 +1,21 @@
-import Header from './Header';
-import Input from './Input';
-import List from './List';
-
 import { useState } from 'react';
 
-function App() {
-  const [tasks, setTasks] = useState([]);
+import Header from './ui/Header';
+import Input from './ui/Input';
+import List from './ui/List';
+import Main from './ui/Main';
 
-  console.log(tasks);
+function App() {
+  const [tasks, setTasks] = useState(() => {
+    return localStorage.getItem('tasks') || [];
+  });
 
   return (
-    <>
+    <Main>
       <Header />
       <Input setTasks={setTasks} />
       <List tasks={tasks} />
-    </>
+    </Main>
   );
 }
 

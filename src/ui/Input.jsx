@@ -1,6 +1,7 @@
-import Button from './Button';
-import styles from './Input.module.css';
 import { useState } from 'react';
+
+import Button from './Button';
+import styles from '../styles/Input.module.css';
 
 function Input({ setTasks }) {
   const [input, setInput] = useState('');
@@ -11,9 +12,11 @@ function Input({ setTasks }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(self);
+    if (input === '') return;
+
     const newTask = {
       text: input,
+      isCompleted: false,
       id: self.crypto.randomUUID(),
     };
     setTasks((tasks) => [...tasks, newTask]);

@@ -8,23 +8,29 @@
 }
 
 .list__item-checkbox {
-  height: 2rem;
-  width: 2rem;
+  height: 2.4rem;
+  width: 2.4rem;
   border: none;
   border-radius: var(--border-radius-sm);
 }
 
 .list__item-checkbox--completed {
-  background-color: var(--color-brand-600);
+  /* background-color: var(--color-brand-600); */
+
+  & svg {
+    width: 2rem;
+    height: 2rem;
+    color: var(--color-brand-600);
+  }
 }
 
 .list__item-text {
-  font-size: 2.4rem;
+  font-size: 2.8rem;
   font-weight: 500;
   margin-right: auto;
 }
 
 .list__item-text--completed {
-  color: var(--color-grey-200);
+  color: var(--color-grey-400);
   text-decoration: line-through;
 }

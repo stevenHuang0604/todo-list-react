@@ -4,17 +4,15 @@ import Main from './ui/Main';
 import Header from './ui/Header';
 import Input from './ui/Input';
 import List from './ui/List';
+import Status from './ui/status';
 
 function App() {
-  const [tasks, setTasks] = useState(() => {
-    return localStorage.getItem('tasks') || [];
-  });
-
   return (
     <Main>
       <Header />
-      <Input setTasks={setTasks} />
-      <List tasks={tasks} setTasks={setTasks} />
+      <Input />
+      <List />
+      <Status />
     </Main>
   );
 }

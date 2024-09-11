@@ -1,7 +1,8 @@
 .header {
+  width: 65%;
   text-align: center;
   padding: 4rem 0;
-
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,4 +18,7 @@
   font-size: 4rem;
   font-weight: 700;
   letter-spacing: 0.5px;
+  text-align: center;
+  width: 100%;
+  margin-right: auto;
 }

@@ -1,8 +1,11 @@
-import { HiTrash } from 'react-icons/hi2';
+import { HiOutlineCheck, HiOutlineTrash } from 'react-icons/hi2';
 import Button from './Button';
 import styles from '../styles/ListItem.module.css';
+import { useTasks } from '../context/TasksContext';
 
-function ListItem({ task, setTasks }) {
+function ListItem({ task }) {
+  const { setTasks } = useTasks();
+
   function handleComplete() {
     setTasks((tasks) => {
       const newTasks = tasks.map((t) => {
@@ -28,13 +31,15 @@ function ListItem({ task, setTasks }) {
           task.isCompleted ? styles['list__item-checkbox--completed'] : ''
         }`}
         onClick={handleComplete}
-      ></button>
+      >
+        {task.isCompleted ? <HiOutlineCheck /> : ''}
+      </button>
 
       <span className={`${styles['list__item-text']} ${task.isCompleted ? styles['list__item-text--completed'] : ''}`}>
         {task.text}
       </span>
       <Button size='medium' type='secondary' onClick={handleDelete}>
-        <HiTrash />
+        <HiOutlineTrash />
       </Button>
     </div>
   );

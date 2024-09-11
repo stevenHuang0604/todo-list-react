@@ -11,7 +11,7 @@ function Header() {
   return (
     <div className={styles.header}>
       <img src={src} alt='logo' className={styles.logo} />
-      <span className={styles.title}>Todo List</span>
+      <h1 className={styles.title}>Todo List</h1>
       <Button type='secondary' size='medium' onClick={toggleDarkMode}>
         {isDarkMode ? <HiOutlineSun /> : <HiOutlineMoon />}
       </Button>

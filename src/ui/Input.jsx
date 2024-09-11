@@ -2,9 +2,11 @@ import { useRef, useState } from 'react';
 
 import Button from './Button';
 import styles from '../styles/Input.module.css';
+import { useTasks } from '../context/TasksContext';
 
-function Input({ setTasks }) {
+function Input() {
   const [input, setInput] = useState('');
+  const { setTasks } = useTasks();
   const ref = useRef();
 
   function handleInput(e) {

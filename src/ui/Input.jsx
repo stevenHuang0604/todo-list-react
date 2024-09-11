@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 import Button from './Button';
 import styles from '../styles/Input.module.css';
 
 function Input({ setTasks }) {
   const [input, setInput] = useState('');
+  const ref = useRef();
 
   function handleInput(e) {
     setInput(e.target.value);
@@ -21,6 +22,8 @@ function Input({ setTasks }) {
     };
     setTasks((tasks) => [...tasks, newTask]);
     setInput('');
+    // unfocus the input element
+    ref.current.blur();
   }
 
   return (
@@ -31,8 +34,9 @@ function Input({ setTasks }) {
         placeholder='Type your task here.'
         value={input}
         onChange={handleInput}
+        ref={ref}
       />
-      <Button size='small' type='primary'>
+      <Button size='medium' type='primary'>
         Add
       </Button>
     </form>

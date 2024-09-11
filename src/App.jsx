@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
+import Main from './ui/Main';
 import Header from './ui/Header';
 import Input from './ui/Input';
 import List from './ui/List';
-import Main from './ui/Main';
 
 function App() {
   const [tasks, setTasks] = useState(() => {
@@ -14,7 +14,7 @@ function App() {
     <Main>
       <Header />
       <Input setTasks={setTasks} />
-      <List tasks={tasks} />
+      <List tasks={tasks} setTasks={setTasks} />
     </Main>
   );
 }

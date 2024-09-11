@@ -1,22 +1,78 @@
 .button {
+  background: none;
   border: none;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-sm);
+
+  &:focus:not(:active) {
+    outline: none;
+  }
+
+  & svg {
+    transition: all 0.3s;
+  }
 }
 
 /* size */
 .small {
-  font-size: 1.8rem;
-  letter-spacing: 0.25px;
-  padding: 1rem;
-  border-radius: var(--border-radius-sm);
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.4rem 0.8rem;
+  text-align: center;
+
+  & svg {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+}
+
+.medium {
+  font-size: 1.4rem;
+  font-weight: 500;
+  padding: 1.2rem 1.6rem;
+
+  & svg {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+}
+
+.large {
+  font-size: 1.6rem;
+  font-weight: 500;
+  padding: 1.2rem 2.4rem;
+
+  & svg {
+    width: 2rem;
+    height: 2rem;
+  }
 }
 
 /* type */
 .primary {
-  color: var(--color-grey-100);
+  color: var(--color-brand-50);
   background-color: var(--color-brand-600);
-  transition: all 0.5s;
+
+  &:hover {
+    background-color: var(--color-brand-700);
+  }
 }
 
-.primary:focus {
-  background-color: var(--color-brand-500);
+.secondary {
+  color: var(--color-grey-600);
+  /* border: 1px solid var(--color-grey-200); */
+
+  &:hover {
+    background-color: var(--color-grey-200);
+  }
+}
+
+.danger {
+  color: var(--color-red-100);
+  background-color: var(--color-red-700);
+
+  &:hover {
+    background-color: var(--color-red-800);
+  }
 }

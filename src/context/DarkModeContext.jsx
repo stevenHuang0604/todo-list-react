@@ -19,7 +19,7 @@ function DarkModeProvider({ children }) {
   }, [isDarkMode]);
 
   function toggleDarkMode() {
-    setIsDarkMode((isDark) => !isDarkMode);
+    setIsDarkMode((isDark) => !isDark);
   }
 
   return (

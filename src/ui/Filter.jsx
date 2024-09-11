@@ -1,8 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from '../styles/Filter.module.css';
+import { useFilter } from '../context/FilterContext';
 
 function Filter({ options }) {
-  const [currentFilter, setCurrentFilter] = useState(options[0].value);
+  const { currentFilter, setCurrentFilter } = useFilter();
+
+  // only in first render
+  useEffect(() => {
+    setCurrentFilter(options[0].value);
+  }, []);
 
   function handleClick(e) {
     const currentFilterId = options.findIndex((option) => option.label === e.target.textContent);

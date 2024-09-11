@@ -1,11 +1,18 @@
 import ListItem from './ListItem';
 import styles from '../styles/List.module.css';
 import { useTasks } from '../context/TasksContext';
+import { useFilter } from '../context/FilterContext';
 
 function List() {
-  const { tasks, setTasks } = useTasks();
+  const { tasks } = useTasks();
+  const { currentFilter } = useFilter();
 
   const taskLength = tasks?.length;
+
+  let filteredTasks;
+  if (currentFilter === 'all') filteredTasks = tasks;
+  if (currentFilter === 'active') filteredTasks = tasks.filter((task) => task.isCompleted === false);
+  if (currentFilter === 'completed') filteredTasks = tasks.filter((task) => task.isCompleted === true);
 
   if (!taskLength)
     return (
@@ -16,7 +23,7 @@ function List() {
 
   return (
     <div className={styles.list}>
-      {tasks.map((task) => (
+      {filteredTasks.map((task) => (
         <ListItem task={task} key={task.id} />
       ))}
     </div>

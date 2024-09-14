@@ -35,7 +35,6 @@
 .list::-webkit-scrollbar-thumb {
   background-color: var(--color-indigo-700);
   border-radius: var(--border-radius-sm);
-  transition: background-color 0.5s eae;
 }
 
 .cover-bar {

@@ -16,16 +16,21 @@ function List() {
 
   if (!taskLength)
     return (
-      <div className={styles.list}>
-        <span className={styles['list__empty']}>No item now. Please add some list items!</span>
+      <div className={styles['list-wrap']}>
+        <div className={styles.list}>
+          <span className={styles['list__empty']}>No item now. Please add some list items!</span>
+        </div>
       </div>
     );
 
   return (
-    <div className={styles.list}>
-      {filteredTasks.map((task) => (
-        <ListItem task={task} key={task.id} />
-      ))}
+    <div className={styles['list-wrap']}>
+      <div className={styles.list}>
+        {filteredTasks.map((task) => (
+          <ListItem task={task} key={task.id} />
+        ))}
+      </div>
+      <div className={styles['cover-bar']}></div>
     </div>
   );
 }

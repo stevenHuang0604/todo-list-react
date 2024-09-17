@@ -3,6 +3,7 @@ import { useRef, useState } from 'react';
 import Button from './Button';
 import styles from '../styles/Input.module.css';
 import { useTasks } from '../context/TasksContext';
+import { HiOutlinePlus } from 'react-icons/hi2';
 
 function Input() {
   const [input, setInput] = useState('');
@@ -20,6 +21,7 @@ function Input() {
     const newTask = {
       text: input,
       isCompleted: false,
+      createdAt: new Date().toISOString(),
       id: self.crypto.randomUUID(),
     };
     setTasks((tasks) => [...tasks, newTask]);
@@ -33,13 +35,13 @@ function Input() {
       <input
         className={styles.input}
         type='text'
-        placeholder='Type your task here.'
+        placeholder='New Task ...'
         value={input}
         onChange={handleInput}
         ref={ref}
       />
       <Button size='medium' type='primary'>
-        Add
+        <HiOutlinePlus />
       </Button>
     </form>
   );

@@ -7,7 +7,7 @@ const TasksContext = createContext({
 
 function TasksProvider({ children }) {
   const [tasks, setTasks] = useState(() => {
-    return localStorage.getItem('tasks') || [];
+    return JSON.parse(localStorage.getItem('tasks')) || [];
   });
 
   return (

@@ -2,15 +2,19 @@ import ListItem from './ListItem';
 import styles from '../styles/List.module.css';
 import { useTasks } from '../context/TasksContext';
 import { useFilter } from '../context/FilterContext';
+import { useEffect } from 'react';
 
 function List() {
   const { tasks } = useTasks();
   const { currentFilter } = useFilter();
 
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks]);
+
   const taskLength = tasks?.length;
 
-  let filteredTasks;
-  if (currentFilter === 'all') filteredTasks = tasks;
+  let filteredTasks = tasks;
   if (currentFilter === 'active') filteredTasks = tasks.filter((task) => task.isCompleted === false);
   if (currentFilter === 'completed') filteredTasks = tasks.filter((task) => task.isCompleted === true);
 

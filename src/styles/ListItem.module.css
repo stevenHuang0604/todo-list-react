@@ -19,6 +19,10 @@
   width: 2rem;
   border: none;
   border-radius: var(--border-radius-sm);
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .list__item-checkbox--completed {

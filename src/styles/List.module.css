@@ -5,7 +5,7 @@
 }
 
 .list {
-  height: 30vh;
+  max-height: 40vh;
 
   padding: 1.6rem;
   margin-top: 4rem;
@@ -23,7 +23,7 @@
 }
 
 .list::-webkit-scrollbar {
-  width: 6px;
+  width: 10px;
 }
 
 .list::-webkit-scrollbar-track {
@@ -43,14 +43,16 @@
   height: 100%;
   top: 0;
   right: 0;
-  width: 7px;
+  width: 11px;
   opacity: 1;
-  transition: all 0.5s;
+  visibility: visible;
+  transition: all 0.3s;
 }
 
 .list-wrap:hover .cover-bar {
   opacity: 0;
-  transition: all 0.5s;
+  visibility: hidden;
+  transition: all 0.3s;
 }
 
 .list__empty {

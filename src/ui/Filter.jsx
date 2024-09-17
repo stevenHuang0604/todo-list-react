@@ -3,7 +3,7 @@ import styles from '../styles/Filter.module.css';
 import { useFilter } from '../context/FilterContext';
 
 function Filter({ options }) {
-  const { currentFilter, setCurrentFilter } = useFilter();
+  const { currentFilter, setCurrentFilter } = useFilter('');
 
   // only in first render
   useEffect(() => {

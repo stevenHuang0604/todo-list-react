@@ -6,6 +6,7 @@ import { useTasks } from '../context/TasksContext';
 function ListItem({ task }) {
   const { setTasks } = useTasks();
 
+  // Toggle the task completed or not
   function handleComplete() {
     setTasks((tasks) => {
       const newTasks = tasks.map((t) => {
@@ -20,12 +21,13 @@ function ListItem({ task }) {
     });
   }
 
+  // Delete the task
   function handleDelete() {
     setTasks((tasks) => tasks.filter((t) => t.id !== task.id));
   }
 
   return (
-    <div className={styles['list__item']}>
+    <li className={styles['list__item']}>
       <button
         className={`${styles['list__item-checkbox']} ${
           task.isCompleted ? styles['list__item-checkbox--completed'] : ''
@@ -38,10 +40,10 @@ function ListItem({ task }) {
       <span className={`${styles['list__item-text']} ${task.isCompleted ? styles['list__item-text--completed'] : ''}`}>
         {task.text}
       </span>
-      <Button size='medium' type='secondary' onClick={handleDelete}>
+      <Button size='small' type='secondary' onClick={handleDelete}>
         <HiOutlineTrash />
       </Button>
-    </div>
+    </li>
   );
 }
 

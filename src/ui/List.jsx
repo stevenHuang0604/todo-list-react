@@ -14,26 +14,29 @@ function List() {
 
   const taskLength = tasks?.length;
 
+  // Display empty hint if there is no tasks.
+  if (!taskLength)
+    return (
+      <div className={styles['list-wrap']}>
+        <ul className={styles.list}>
+          <span className={styles['list__empty']}>No item now. Please add some list items!</span>
+        </ul>
+      </div>
+    );
+
+  // Filter tasks by current status.
   let filteredTasks = tasks;
   if (currentFilter === 'active') filteredTasks = tasks.filter((task) => task.isCompleted === false);
   if (currentFilter === 'completed') filteredTasks = tasks.filter((task) => task.isCompleted === true);
 
-  if (!taskLength)
-    return (
-      <div className={styles['list-wrap']}>
-        <div className={styles.list}>
-          <span className={styles['list__empty']}>No item now. Please add some list items!</span>
-        </div>
-      </div>
-    );
-
+  // Display filtered tasks through mapping ListItem.
   return (
     <div className={styles['list-wrap']}>
-      <div className={styles.list}>
+      <ul className={styles.list}>
         {filteredTasks.map((task) => (
           <ListItem task={task} key={task.id} />
         ))}
-      </div>
+      </ul>
       <div className={styles['cover-bar']}></div>
     </div>
   );

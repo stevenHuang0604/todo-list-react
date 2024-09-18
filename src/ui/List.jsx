@@ -32,12 +32,18 @@ function List() {
   // Display filtered tasks through mapping ListItem.
   return (
     <div className={styles['list-wrap']}>
+      <header className={styles['list-header']}>
+        <div>Status</div>
+        <div>Task</div>
+        <div>Category</div>
+        <div></div>
+      </header>
       <ul className={styles.list}>
         {filteredTasks.map((task) => (
           <ListItem task={task} key={task.id} />
         ))}
+        <div className={styles['cover-bar']}></div>
       </ul>
-      <div className={styles['cover-bar']}></div>
     </div>
   );
 }

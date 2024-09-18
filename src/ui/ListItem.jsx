@@ -1,10 +1,13 @@
-import { HiOutlineCheck, HiOutlineTrash } from 'react-icons/hi2';
+import { HiOutlineCheck, HiOutlinePencil, HiOutlineTrash } from 'react-icons/hi2';
 import Button from './Button';
 import styles from '../styles/ListItem.module.css';
 import { useTasks } from '../context/TasksContext';
+import { useState } from 'react';
 
 function ListItem({ task }) {
   const { setTasks } = useTasks();
+  const [isEditing, setIsEditing] = useState(false);
+  const [updatedTaskName, setupdatedTaskName] = useState(task.text);
 
   // Toggle the task completed or not
   function handleComplete() {
@@ -19,6 +22,37 @@ function ListItem({ task }) {
       });
       return newTasks;
     });
+  }
+
+  // Edit the task
+  function handleEdit() {
+    setIsEditing((isEdit) => !isEdit);
+  }
+
+  // Update task name
+  function handleChangeTask(e) {
+    setupdatedTaskName(e.target.value);
+    console.log(updatedTaskName);
+  }
+
+  // Submit updated task
+  function handleSubmit() {
+    setTasks((tasks) =>
+      tasks.map((t) => {
+        if (t.id !== task.id) return t;
+        return {
+          ...t,
+          text: updatedTaskName,
+        };
+      })
+    );
+
+    setIsEditing(false);
+  }
+
+  // Cancel editing mode
+  function handleBlur() {
+    setIsEditing(false);
   }
 
   // Delete the task
@@ -37,12 +71,40 @@ function ListItem({ task }) {
         {task.isCompleted ? <HiOutlineCheck /> : ''}
       </button>
 
-      <span className={`${styles['list__item-text']} ${task.isCompleted ? styles['list__item-text--completed'] : ''}`}>
-        {task.text}
-      </span>
-      <Button size='small' type='secondary' onClick={handleDelete}>
-        <HiOutlineTrash />
-      </Button>
+      {isEditing ? (
+        <form onSubmit={handleSubmit}>
+          <input
+            type='text'
+            value={updatedTaskName}
+            onChange={handleChangeTask}
+            onBlur={handleBlur}
+            className={`${styles['list__item-text']} ${task.isCompleted ? styles['list__item-text--completed'] : ''}`}
+          />
+        </form>
+      ) : (
+        <span
+          onDoubleClick={handleEdit}
+          className={`${styles['list__item-text']} ${task.isCompleted ? styles['list__item-text--completed'] : ''}`}
+        >
+          {task.text}
+        </span>
+      )}
+
+      <span className={`${styles.category} ${styles[`category--${task.category}`]}`}>{task.category}</span>
+
+      <div>
+        {task.isCompleted ? (
+          ''
+        ) : (
+          <Button size='small' type='secondary' onClick={handleEdit}>
+            <HiOutlinePencil />
+          </Button>
+        )}
+
+        <Button size='small' type='secondary' onClick={handleDelete}>
+          <HiOutlineTrash />
+        </Button>
+      </div>
     </li>
   );
 }

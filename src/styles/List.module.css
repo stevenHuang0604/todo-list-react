@@ -1,14 +1,37 @@
 .list-wrap {
   position: relative;
-  width: 65%;
-  margin: 0 auto;
+  /* width: 65%; */
+  margin: 4rem auto 0;
+
+  border: 1px solid var(--color-grey-200);
+
+  font-size: 1.4rem;
+  background-color: var(--color-grey-0);
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.list-header {
+  font-weight: 600;
+  padding: 1.6rem 2.4rem;
+  color: var(--color-grey-600);
+  background-color: var(--color-grey-50);
+  border-bottom: 1px solid var(--color-grey-100);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+
+  display: grid;
+  grid-template-columns: 2fr 3.2fr 2fr 1fr;
+  column-gap: 2.4rem;
+  align-items: center;
+  transition: none;
 }
 
 .list {
   max-height: 40vh;
 
   padding: 1.6rem;
-  margin-top: 4rem;
+  /* margin: 0.4rem 0; */
   border: 1px solid var(--color-grey-200);
   border-radius: var(--border-radius-sm);
   box-shadow: var(--shadow-md);
@@ -24,10 +47,10 @@
 
 .list::-webkit-scrollbar {
   width: 10px;
+  background-color: var(--color-grey-0);
 }
 
 .list::-webkit-scrollbar-track {
-  background-color: transparent;
   border-radius: var(--border-radius-sm);
   margin-block: 5px;
 }
@@ -39,7 +62,8 @@
 
 .cover-bar {
   position: absolute;
-  background-color: var(--color-grey-50);
+  background-color: var(--color-grey-0);
+
   height: 100%;
   top: 0;
   right: 0;

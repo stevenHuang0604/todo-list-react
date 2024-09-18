@@ -7,13 +7,28 @@ import { useTasks } from '../context/TasksContext';
 import { HiOutlinePlus } from 'react-icons/hi2';
 import Select from './Select';
 
+const categoryOptions = [
+  { value: 'personal', label: 'Personal' },
+  { value: 'work', label: 'Work' },
+  { value: 'study', label: 'Study' },
+  { value: 'health', label: 'Health' },
+  { value: 'finance', label: 'Finance' },
+  { value: 'social', label: 'Social' },
+  { value: 'shopping', label: 'Shopping' },
+];
+
 function Input() {
   const [input, setInput] = useState('');
+  const [category, setCategory] = useState(categoryOptions[0].value);
   const { setTasks } = useTasks();
   const ref = useRef();
 
   function handleInput(e) {
     setInput(e.target.value);
+  }
+
+  function handleChange(e) {
+    setCategory(e.target.value);
   }
 
   function handleSubmit(e) {
@@ -22,12 +37,16 @@ function Input() {
 
     const newTask = {
       text: input,
+      category,
       isCompleted: false,
+
       createdAt: new Date().toISOString(),
       id: self.crypto.randomUUID(),
     };
+
     setTasks((tasks) => [...tasks, newTask]);
     setInput('');
+    setCategory(categoryOptions[0].value);
     // unfocus the input element
     ref.current.blur();
   }
@@ -43,20 +62,8 @@ function Input() {
         ref={ref}
       />
 
-      <Select
-        options={[
-          { value: 'personal', label: 'Personal' },
-          { value: 'work', label: 'Work' },
-          { value: 'study', label: 'Study' },
-          { value: 'health', label: 'Health' },
-          { value: 'family', label: 'Family' },
-          { value: 'entertainment', label: 'Entertainment' },
-          { value: 'finance', label: 'Finance' },
-          { value: 'social', label: 'Social' },
-          { value: 'projects', label: 'Projects' },
-          { value: 'shopping', label: 'Shopping' },
-        ]}
-      />
+      <Select options={categoryOptions} onChange={handleChange} value={category} />
+
       <Button size='medium' type='primary'>
         <HiOutlinePlus />
       </Button>

@@ -36,6 +36,7 @@ function List() {
         <div>Status</div>
         <div>Task</div>
         <div>Category</div>
+        <div>Created Date</div>
         <div></div>
       </header>
       <ul className={styles.list}>

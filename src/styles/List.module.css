@@ -21,7 +21,7 @@
   letter-spacing: 0.4px;
 
   display: grid;
-  grid-template-columns: 2fr 3.2fr 2fr 1fr;
+  grid-template-columns: 1fr 3.2fr 1.6fr 2fr 1fr;
   column-gap: 2.4rem;
   align-items: center;
   transition: none;

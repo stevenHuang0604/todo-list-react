@@ -18,6 +18,18 @@ function ListItem({ task }) {
     }
   }, [isEditing]);
 
+  function formatDate(date) {
+    date = new Date(date);
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+
+    if (month < 10) month = `0${month}`;
+    if (day < 10) day = `0${day}`;
+
+    return `${year}/${month}/${day}`;
+  }
+
   // Toggle the task completed or not
   function handleComplete() {
     setTasks((tasks) => {
@@ -106,7 +118,9 @@ function ListItem({ task }) {
 
       <span className={`${styles.category} ${styles[`category--${task.category}`]}`}>{task.category}</span>
 
-      <div className={styles['list__item-operation']}>
+      <span>{formatDate(task.createdAt)}</span>
+
+      <span className={styles['list__item-operation']}>
         <Button size='small' type='secondary' onClick={handleEdit} ref={editRef}>
           <HiOutlinePencil />
         </Button>
@@ -114,7 +128,7 @@ function ListItem({ task }) {
         <Button size='small' type='secondary' onClick={handleDelete}>
           <HiOutlineTrash />
         </Button>
-      </div>
+      </span>
     </li>
   );
 }

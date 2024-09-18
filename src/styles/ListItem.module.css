@@ -70,6 +70,11 @@
   text-decoration: line-through;
 }
 
+.list__item-operation {
+  display: flex;
+  gap: 0.4rem;
+}
+
 .category {
   font-size: 1.2rem;
   font-weight: 600;

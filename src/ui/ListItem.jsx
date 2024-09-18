@@ -9,6 +9,7 @@ function ListItem({ task }) {
   const [isEditing, setIsEditing] = useState(false);
   const [updatedTaskName, setupdatedTaskName] = useState(task.text);
   const ref = useRef();
+  const editRef = useRef();
 
   // Focus the input field when it first show in the browser
   useEffect(() => {
@@ -43,7 +44,9 @@ function ListItem({ task }) {
   }
 
   // Submit updated task
-  function handleSubmit() {
+  function handleSubmit(e) {
+    e.preventDefault();
+
     setTasks((tasks) =>
       tasks.map((t) => {
         if (t.id !== task.id) return t;
@@ -58,8 +61,11 @@ function ListItem({ task }) {
   }
 
   // Cancel editing mode
-  function handleBlur() {
-    setIsEditing(false);
+  function handleBlur(e) {
+    // Check if the click is on the edit button
+    if (e.relatedTarget !== editRef.current) {
+      setIsEditing(false);
+    }
   }
 
   // Delete the task
@@ -100,8 +106,8 @@ function ListItem({ task }) {
 
       <span className={`${styles.category} ${styles[`category--${task.category}`]}`}>{task.category}</span>
 
-      <div>
-        <Button size='small' type='secondary' onClick={handleEdit}>
+      <div className={styles['list__item-operation']}>
+        <Button size='small' type='secondary' onClick={handleEdit} ref={editRef}>
           <HiOutlinePencil />
         </Button>
 

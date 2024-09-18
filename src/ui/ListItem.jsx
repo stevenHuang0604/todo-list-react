@@ -2,12 +2,20 @@ import { HiOutlineCheck, HiOutlinePencil, HiOutlineTrash } from 'react-icons/hi2
 import Button from './Button';
 import styles from '../styles/ListItem.module.css';
 import { useTasks } from '../context/TasksContext';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 function ListItem({ task }) {
   const { setTasks } = useTasks();
   const [isEditing, setIsEditing] = useState(false);
   const [updatedTaskName, setupdatedTaskName] = useState(task.text);
+  const ref = useRef();
+
+  // Focus the input field when it first show in the browser
+  useEffect(() => {
+    if (isEditing && ref.current) {
+      ref.current.focus();
+    }
+  }, [isEditing]);
 
   // Toggle the task completed or not
   function handleComplete() {
@@ -32,7 +40,6 @@ function ListItem({ task }) {
   // Update task name
   function handleChangeTask(e) {
     setupdatedTaskName(e.target.value);
-    console.log(updatedTaskName);
   }
 
   // Submit updated task
@@ -78,7 +85,8 @@ function ListItem({ task }) {
             value={updatedTaskName}
             onChange={handleChangeTask}
             onBlur={handleBlur}
-            className={`${styles['list__item-text']} ${task.isCompleted ? styles['list__item-text--completed'] : ''}`}
+            ref={ref}
+            className={`${styles['list__item-input']} ${task.isCompleted ? styles['list__item-text--completed'] : ''}`}
           />
         </form>
       ) : (
@@ -93,13 +101,9 @@ function ListItem({ task }) {
       <span className={`${styles.category} ${styles[`category--${task.category}`]}`}>{task.category}</span>
 
       <div>
-        {task.isCompleted ? (
-          ''
-        ) : (
-          <Button size='small' type='secondary' onClick={handleEdit}>
-            <HiOutlinePencil />
-          </Button>
-        )}
+        <Button size='small' type='secondary' onClick={handleEdit}>
+          <HiOutlinePencil />
+        </Button>
 
         <Button size='small' type='secondary' onClick={handleDelete}>
           <HiOutlineTrash />

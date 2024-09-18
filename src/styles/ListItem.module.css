@@ -49,7 +49,18 @@
   /* gap: 0.2rem; */
 }
 
+.list__item-input {
+  font-size: 1.8rem;
+  font-weight: 500;
+  background-color: var(--color-grey-0);
+  border: 1px solid var(--color-grey-300);
+  border-radius: var(--border-radius-sm);
+  padding: 0.4rem 0.8rem;
+  box-shadow: var(--shadow-sm);
+}
+
 .list__item-text {
+  width: 100%;
   font-size: 2.2rem;
   font-weight: 500;
 }

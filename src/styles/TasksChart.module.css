@@ -1,0 +1,25 @@
+.chart {
+  grid-column: 1/-1;
+
+  font-size: 1.6rem;
+  background-color: var(--color-grey-0);
+  border: 1px solid var(--color-grey-100);
+  border-radius: var(--border-radius-md);
+
+  padding: 3.2rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+
+  & .recharts-cartesian-grid-horizontal line,
+  & .recharts-cartesian-grid-vertical line {
+    stroke: var(--color-grey-300);
+  }
+}
+
+.header {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.4;
+}

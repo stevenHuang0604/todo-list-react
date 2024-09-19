@@ -9,13 +9,13 @@ function Header() {
   const src = isDarkMode ? '/todo-list-react-dark.png' : '/todo-list-react-light.png';
 
   return (
-    <div className={styles.header}>
+    <header className={styles.header}>
       <img src={src} alt='logo' className={styles.logo} />
       <h1 className={styles.title}>Todo List</h1>
       <Button type='secondary' size='medium' onClick={toggleDarkMode}>
         {isDarkMode ? <HiOutlineSun /> : <HiOutlineMoon />}
       </Button>
-    </div>
+    </header>
   );
 }
 

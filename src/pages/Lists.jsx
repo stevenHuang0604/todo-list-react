@@ -1,7 +1,7 @@
 import { useTasks } from '../context/TasksContext';
 import Input from '../ui/Input';
 import List from '../ui/List';
-import Status from '../ui/status';
+import Status from '../ui/Status';
 
 function Lists() {
   const { tasks } = useTasks();

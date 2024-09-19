@@ -21,8 +21,8 @@
 }
 
 .list__item-checkbox {
-  height: 2rem;
-  width: 2rem;
+  height: 2.2rem;
+  width: 2.2rem;
   border: none;
   border-radius: var(--border-radius-sm);
   margin-right: 2rem;
@@ -33,12 +33,12 @@
 }
 
 .list__item-checkbox--completed {
-  /* background-color: var(--color-brand-600); */
+  background-color: var(--color-brand-600);
 
   & svg {
-    width: 1.6rem;
-    height: 1.6rem;
-    color: var(--color-brand-600);
+    width: 1.8rem;
+    height: 1.8rem;
+    color: var(--color-brand-50);
   }
 }
 

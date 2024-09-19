@@ -1,4 +1,4 @@
-![Logo](./public/todo-list-react-light.png)
+<img src="./public/todo-list-react-light.png" width="400" />
 
 # Todo List React
 

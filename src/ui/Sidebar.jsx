@@ -14,7 +14,7 @@ function Sidebar() {
             </NavLink>
           </li>
           <li>
-            <NavLink className={styles.navLink} to='/'>
+            <NavLink className={styles.navLink} to='/charts'>
               <HiOutlineChartBar />
               <span>Charts</span>
             </NavLink>

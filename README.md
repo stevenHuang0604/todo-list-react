@@ -1,7 +1,7 @@
 <p align='center'>
-<a href='https://todo-list-react-stevenhuang0604.vercel.app'>
-  <img src="./public/todo-list-react-light.png" width="300"  align="center"/>
-</a>
+  <a href='https://todo-list-react-stevenhuang0604.vercel.app' target='_blank'>
+    <img src="./public/todo-list-react-light.png" width="300"  align="center"/>
+  </a>
 </p>
 
 # Todo List React

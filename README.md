@@ -6,7 +6,7 @@
 
 # Todo List React
 
-A simple and feature-rich todo list application built with React.
+A sleek and intuitive todo list application built with React. This project combines a visually appealing interface with powerful task management features, allowing users to effectively track and organize their tasks with ease.
 
 ## Screenshots
 

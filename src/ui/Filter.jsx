@@ -1,18 +1,13 @@
-import { useEffect, useState } from 'react';
 import styles from '../styles/Filter.module.css';
-import { useFilter } from '../context/FilterContext';
+import { useSearchParams } from 'react-router-dom';
 
 function Filter({ options }) {
-  const { currentFilter, setCurrentFilter } = useFilter('');
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  // only in first render
-  useEffect(() => {
-    setCurrentFilter(options[0].value);
-  }, []);
+  const currentFilter = searchParams.get('status') || options[0].value;
 
-  function handleClick(e) {
-    const currentFilterId = options.findIndex((option) => option.label === e.target.textContent);
-    setCurrentFilter(options[currentFilterId].value);
+  function handleClick(value) {
+    setSearchParams({ status: value });
   }
 
   return (
@@ -23,7 +18,7 @@ function Filter({ options }) {
             currentFilter === option.value ? styles['filter__button--active'] : ''
           }`}
           key={option.value}
-          onClick={handleClick}
+          onClick={() => handleClick(option.value)}
           disabled={currentFilter === option.value}
         >
           {option.label}

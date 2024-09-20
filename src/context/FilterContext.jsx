@@ -1,5 +1,4 @@
 import { createContext, useContext, useState } from 'react';
-import { HiOutlineChatBubbleBottomCenterText } from 'react-icons/hi2';
 
 const FilterContext = createContext({
   currentFilter: '',

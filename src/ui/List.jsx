@@ -1,12 +1,12 @@
 import ListItem from './ListItem';
 import styles from '../styles/List.module.css';
 import { useTasks } from '../context/TasksContext';
-import { useFilter } from '../context/FilterContext';
 import { useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 function List() {
   const { tasks } = useTasks();
-  const { currentFilter } = useFilter();
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -25,6 +25,8 @@ function List() {
     );
 
   // Filter tasks by current status.
+  const currentFilter = searchParams.get('status');
+
   let filteredTasks = tasks;
   if (currentFilter === 'active') filteredTasks = tasks.filter((task) => task.isCompleted === false);
   if (currentFilter === 'completed') filteredTasks = tasks.filter((task) => task.isCompleted === true);

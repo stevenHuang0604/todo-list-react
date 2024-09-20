@@ -1,8 +1,11 @@
-import { HiOutlineCheck, HiOutlinePencil, HiOutlineTrash } from 'react-icons/hi2';
-import Button from './Button';
-import styles from '../styles/ListItem.module.css';
-import { useTasks } from '../context/TasksContext';
 import { useEffect, useRef, useState } from 'react';
+import { HiOutlineCheck, HiOutlinePencil, HiOutlineTrash } from 'react-icons/hi2';
+
+import { useTasks } from '../context/TasksContext';
+
+import Button from './Button';
+
+import styles from '../styles/ListItem.module.css';
 
 function ListItem({ task }) {
   const { setTasks } = useTasks();

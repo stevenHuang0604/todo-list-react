@@ -89,7 +89,7 @@ const fakeData = [
     text: 'buying t-shirt',
     category: 'shopping',
     isCompleted: true,
-    createdAt: '2024-09-18T07:01:38.427Z',
+    createdAt: '2024-09-19T07:01:38.427Z',
     id: '7ed6c7aa-b9a2-44ce-a83f-bade2171f205',
   },
   {
@@ -110,14 +110,14 @@ const fakeData = [
     text: 'learning Vue',
     category: 'study',
     isCompleted: true,
-    createdAt: '2024-09-19T08:36:23.181Z',
+    createdAt: '2024-09-20T08:36:23.181Z',
     id: '0442ac15-37c5-497f-8acf-3a757d28de52',
   },
   {
     text: 'cleaning kitchen',
     category: 'personal',
     isCompleted: false,
-    createdAt: '2024-09-19T08:36:38.937Z',
+    createdAt: '2024-09-20T08:36:38.937Z',
     id: '3dbd1c20-2309-4744-aa91-1a843b7a6c6e',
   },
 ];

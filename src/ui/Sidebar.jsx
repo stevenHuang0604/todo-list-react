@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
-import styles from '../styles/Sidebar.module.css';
 import { HiOutlineChartBar, HiOutlineListBullet } from 'react-icons/hi2';
+
+import styles from '../styles/Sidebar.module.css';
 
 function Sidebar() {
   return (

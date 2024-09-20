@@ -1,7 +1,9 @@
 import { useTasks } from '../context/TasksContext';
-import styles from '../styles/Status.module.css';
+
 import Button from './Button';
 import Filter from './Filter';
+
+import styles from '../styles/Status.module.css';
 
 function Status() {
   const { tasks, setTasks } = useTasks();

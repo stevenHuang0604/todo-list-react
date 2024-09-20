@@ -1,11 +1,12 @@
 import { useRef, useState } from 'react';
+import { HiOutlinePlus } from 'react-icons/hi2';
+
+import { useTasks } from '../context/TasksContext';
 
 import Button from './Button';
+import Select from './Select';
 
 import styles from '../styles/Input.module.css';
-import { useTasks } from '../context/TasksContext';
-import { HiOutlinePlus } from 'react-icons/hi2';
-import Select from './Select';
 
 const categoryOptions = [
   { value: 'personal', label: 'Personal' },

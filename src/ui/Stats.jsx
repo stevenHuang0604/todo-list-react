@@ -1,6 +1,7 @@
 import { HiOutlineChartPie, HiOutlineCheck, HiOutlineRocketLaunch, HiOutlineSquares2X2 } from 'react-icons/hi2';
 
 import { useTasks } from '../context/TasksContext';
+
 import Stat from './Stat';
 
 function Stats() {

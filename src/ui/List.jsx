@@ -1,8 +1,11 @@
-import ListItem from './ListItem';
-import styles from '../styles/List.module.css';
-import { useTasks } from '../context/TasksContext';
 import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+
+import { useTasks } from '../context/TasksContext';
+
+import ListItem from './ListItem';
+
+import styles from '../styles/List.module.css';
 
 function List() {
   const { tasks } = useTasks();

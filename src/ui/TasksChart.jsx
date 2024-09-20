@@ -1,7 +1,9 @@
-import { CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
-import styles from '../styles/TasksChart.module.css';
+import { CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+
 import { useTasks } from '../context/TasksContext';
 import { useDarkMode } from '../context/DarkModeContext';
+
+import styles from '../styles/TasksChart.module.css';
 
 function formatDate(date) {
   date = new Date(date);

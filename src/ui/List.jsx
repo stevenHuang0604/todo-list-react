@@ -38,7 +38,6 @@ function List() {
   const sort = searchParams.get('sort') || 'createdAt-asc';
   const [field, direction] = sort.split('-');
   const modifier = direction === 'asc' ? 1 : -1;
-  console.log(field, modifier);
   const sortedTasks = filteredTasks.sort((a, b) => {
     if (field === 'createdAt') {
       return (new Date(a[field]) - new Date(b[field])) * modifier;

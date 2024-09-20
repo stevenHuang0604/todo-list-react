@@ -8,8 +8,8 @@ function Stats() {
   const { tasks } = useTasks();
 
   const totalTasksNum = tasks.length;
-  const activeTasksNum = tasks.filter((t) => t.isCompleted).length;
-  const completedTasksNum = tasks.filter((t) => !t.isCompleted).length;
+  const activeTasksNum = tasks.filter((t) => !t.isCompleted).length;
+  const completedTasksNum = tasks.filter((t) => t.isCompleted).length;
   const completedRate = completedTasksNum / totalTasksNum;
 
   return (

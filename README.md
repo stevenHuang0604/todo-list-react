@@ -33,11 +33,13 @@ You can try out the live demo of this project at: [https://todo-list-react-steve
 
 6. **Filter Tasks**: Easily browse all, active, or completed tasks using the provided filters.
 
-7. **Dark/Light Mode**: Switch between dark and light modes for comfortable viewing.
+7. **Sort by Date**: Organize your tasks by sorting them according to their creation date.
 
-8. **Task Statistics**: View your task completion statistics at a glance.
+8. **Dark/Light Mode**: Switch between dark and light modes for comfortable viewing.
 
-9. **Task Creation Chart**: Visualize your task creation and completion rates with an integrated line chart.
+9. **Task Statistics**: View your task completion statistics at a glance.
+
+10. **Task Creation Chart**: Visualize your task creation and completion rates with an integrated line chart.
 
 ## Tech Stack
 

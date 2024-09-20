@@ -34,6 +34,17 @@ function List() {
   if (currentFilter === 'active') filteredTasks = tasks.filter((task) => task.isCompleted === false);
   if (currentFilter === 'completed') filteredTasks = tasks.filter((task) => task.isCompleted === true);
 
+  // Sort tasks by current sort status
+  const sort = searchParams.get('sort') || 'createdAt-asc';
+  const [field, direction] = sort.split('-');
+  const modifier = direction === 'asc' ? 1 : -1;
+  console.log(field, modifier);
+  const sortedTasks = filteredTasks.sort((a, b) => {
+    if (field === 'createdAt') {
+      return (new Date(a[field]) - new Date(b[field])) * modifier;
+    } else return a[field].localeCompare(b[field]) * modifier;
+  });
+
   // Display filtered tasks through mapping ListItem.
   return (
     <div className={styles['list-wrap']}>
@@ -45,7 +56,7 @@ function List() {
         <div></div>
       </header>
       <ul className={styles.list}>
-        {filteredTasks.map((task) => (
+        {sortedTasks.map((task) => (
           <ListItem task={task} key={task.id} />
         ))}
         <div className={styles['cover-bar']}></div>

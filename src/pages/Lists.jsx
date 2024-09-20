@@ -11,8 +11,8 @@ function Lists() {
   return (
     <>
       <Input />
-      <List />
       {taskLength ? <Status /> : ''}
+      <List />
     </>
   );
 }

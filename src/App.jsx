@@ -16,8 +16,8 @@ function App() {
             <Routes>
               <Route element={<AppLayout />}>
                 <Route index element={<Navigate replace to='/lists' />} />
-                <Route path='/lists' element={<Lists />} />
-                <Route path='/charts' element={<Charts />} />
+                <Route path='lists' element={<Lists />} />
+                <Route path='charts' element={<Charts />} />
               </Route>
             </Routes>
           </BrowserRouter>

@@ -10,10 +10,10 @@ A sleek and intuitive todo list application built with React. This project combi
 
 ## Screenshots
 
-![Lists light](./public/lists-light.jpeg)
-![Lists dark](./public/lists-dark.jpeg)
-![Charts light](./public/charts-light.jpeg)
-![Charts dark](./public/charts-dark.jpeg)
+![Lists Desktop](./public/lists-desktop.jpeg)
+![Lists Mobile](./public/lists-mobile.jpeg)
+![Charts Desktop](./public/charts-desktop.jpeg)
+![Charts Mobile](./public/charts-mobile.jpeg)
 
 ## Live Demo
 

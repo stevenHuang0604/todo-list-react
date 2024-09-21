@@ -7,11 +7,7 @@ import styles from '../styles/Status.module.css';
 import Sort from './Sort';
 
 function Status() {
-  const { tasks, setTasks } = useTasks();
-
-  const leftTasks = tasks.filter((task) => !task.isCompleted);
-  const TasksLength = tasks.length;
-  const leftTasksLength = leftTasks.length;
+  const { setTasks } = useTasks();
 
   function handleClear() {
     setTasks([]);
@@ -19,10 +15,6 @@ function Status() {
 
   return (
     <div className={styles.status}>
-      <span className={styles.detail}>
-        {leftTasksLength} / {TasksLength} tasks left
-      </span>
-
       <Filter
         options={[
           { value: 'all', label: 'All' },

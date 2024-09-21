@@ -18,6 +18,16 @@
   &:hover {
     background-color: var(--color-grey-100);
   }
+
+  @media screen and (max-width: 48em) {
+    padding: 1.2rem 2rem;
+    grid-template-columns: 1fr 3.2fr 1.6fr 2.4fr 1.2fr;
+  }
+
+  @media screen and (max-width: 40em) {
+    grid-template-columns: 1fr 3.2fr 1.2fr;
+    justify-items: center;
+  }
 }
 
 .list__item-checkbox {
@@ -60,9 +70,17 @@
 }
 
 .list__item-text {
-  width: 100%;
   font-size: 2.2rem;
   font-weight: 500;
+  width: 100%;
+
+  @media screen and (max-width: 62.5em) {
+    font-size: 2rem;
+  }
+
+  @media screen and (max-width: 40em) {
+    text-align: center;
+  }
 }
 
 .list__item-text--completed {
@@ -111,4 +129,35 @@
 
 .category--shopping {
   background-color: var(--color-grey-200);
+}
+
+.modal {
+  padding: 4rem;
+  background-color: var(--color-grey-50);
+
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  width: 75%;
+  padding: 2rem;
+  background-color: var(--color-grey-0);
+  border: 1px solid var(--color-grey-200);
+  border-radius: var(--border-radius-sm);
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.card__row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.card__label {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color-grey-800);
 }

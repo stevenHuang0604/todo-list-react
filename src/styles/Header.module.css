@@ -23,6 +23,10 @@
 .logo {
   height: 9.6rem;
   width: auto;
+
+  @media screen and (max-width: 48em) {
+    height: 8rem;
+  }
 }
 
 .title {
@@ -33,4 +37,8 @@
   color: var(--color-indigo-700);
   width: 100%;
   margin-right: auto;
+
+  @media screen and (max-width: 32em) {
+    font-size: 3.2rem;
+  }
 }

@@ -5,4 +5,16 @@
   background-color: var(--color-grey-50);
   padding: 4rem 4.8rem 6.4rem;
   /* overflow: hidden; */
+
+  @media screen and (max-width: 62.5em) {
+    padding: 3rem 3.6rem 4.8rem;
+  }
+
+  @media screen and (max-width: 48em) {
+    grid-column: 1/-1;
+  }
+
+  @media screen and (max-width: 32em) {
+    padding: 2rem 2.4rem 3.2rem;
+  }
 }

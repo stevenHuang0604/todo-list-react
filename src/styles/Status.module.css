@@ -3,9 +3,17 @@
 
   margin: 0 auto;
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: end;
   align-items: center;
   gap: 2rem;
+
+  @media screen and (max-width: 62.5em) {
+    justify-content: center;
+  }
+
+  @media screen and (max-width: 32em) {
+    gap: 1rem;
+  }
 }
 
 .detail {

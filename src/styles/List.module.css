@@ -25,6 +25,16 @@
   column-gap: 2.4rem;
   align-items: center;
   transition: none;
+
+  @media screen and (max-width: 48em) {
+    padding: 1.2rem 2rem;
+    grid-template-columns: 1fr 3.2fr 1.6fr 2.4fr 1.2fr;
+  }
+
+  @media screen and (max-width: 40em) {
+    grid-template-columns: 1fr 3.2fr 1.2fr;
+    justify-items: center;
+  }
 }
 
 .list {

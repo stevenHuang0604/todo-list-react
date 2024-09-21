@@ -7,6 +7,10 @@
 
   display: flex;
   gap: 0.4rem;
+
+  @media screen and (max-width: 32em) {
+    padding: 0.2rem;
+  }
 }
 
 .filter__button {

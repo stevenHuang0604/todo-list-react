@@ -1,5 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
-import { HiOutlineCheck, HiOutlinePencil, HiOutlineTrash } from 'react-icons/hi2';
+import {
+  HiOutlineCheck,
+  HiOutlineChevronDown,
+  HiOutlineChevronUp,
+  HiOutlinePencil,
+  HiOutlineTrash,
+} from 'react-icons/hi2';
+import { useMediaQuery } from 'react-responsive';
 
 import { useTasks } from '../context/TasksContext';
 
@@ -11,6 +18,9 @@ function ListItem({ task }) {
   const { setTasks } = useTasks();
   const [isEditing, setIsEditing] = useState(false);
   const [updatedTaskName, setupdatedTaskName] = useState(task.text);
+  const [isOpening, setIsOpening] = useState(false);
+  const isTablet = useMediaQuery({ query: '(max-width: 40em)' });
+
   const ref = useRef();
   const editRef = useRef();
 
@@ -83,56 +93,119 @@ function ListItem({ task }) {
     }
   }
 
+  function handleShowDetail() {
+    setIsOpening((open) => !open);
+  }
+
   // Delete the task
   function handleDelete() {
     setTasks((tasks) => tasks.filter((t) => t.id !== task.id));
   }
 
   return (
-    <li className={styles['list__item']}>
-      <button
-        className={`${styles['list__item-checkbox']} ${
-          task.isCompleted ? styles['list__item-checkbox--completed'] : ''
-        }`}
-        onClick={handleComplete}
-      >
-        {task.isCompleted ? <HiOutlineCheck /> : ''}
-      </button>
-
-      {isEditing ? (
-        <form onSubmit={handleSubmit}>
-          <input
-            type='text'
-            value={updatedTaskName}
-            onChange={handleChangeTask}
-            onBlur={handleBlur}
-            ref={ref}
-            className={`${styles['list__item-input']} ${task.isCompleted ? styles['list__item-text--completed'] : ''}`}
-          />
-        </form>
-      ) : (
-        <span
-          onDoubleClick={handleEdit}
-          className={`${styles['list__item-text']} ${task.isCompleted ? styles['list__item-text--completed'] : ''}`}
+    <>
+      <li className={styles['list__item']}>
+        <button
+          className={`${styles['list__item-checkbox']} ${
+            task.isCompleted ? styles['list__item-checkbox--completed'] : ''
+          }`}
+          onClick={handleComplete}
         >
-          {task.text}
+          {task.isCompleted ? <HiOutlineCheck /> : ''}
+        </button>
+
+        {isEditing ? (
+          <form onSubmit={handleSubmit}>
+            <input
+              type='text'
+              value={updatedTaskName}
+              onChange={handleChangeTask}
+              onBlur={handleBlur}
+              ref={ref}
+              className={`${styles['list__item-input']} ${
+                task.isCompleted ? styles['list__item-text--completed'] : ''
+              }`}
+            />
+          </form>
+        ) : (
+          <span
+            onDoubleClick={handleEdit}
+            className={`${styles['list__item-text']} ${task.isCompleted ? styles['list__item-text--completed'] : ''}`}
+          >
+            {task.text}
+          </span>
+        )}
+
+        {isTablet ? (
+          ''
+        ) : (
+          <>
+            <span className={`${styles.category} ${styles[`category--${task.category}`]}`}>{task.category}</span>
+
+            <span>{formatDate(task.createdAt)}</span>
+          </>
+        )}
+
+        <span className={styles['list__item-operation']}>
+          {isTablet ? (
+            <Button size='small' type='secondary' onClick={handleShowDetail} ref={editRef}>
+              {isOpening ? <HiOutlineChevronUp /> : <HiOutlineChevronDown />}
+            </Button>
+          ) : (
+            <>
+              <Button size='small' type='secondary' onClick={handleEdit} ref={editRef}>
+                <HiOutlinePencil />
+              </Button>
+
+              <Button size='small' type='secondary' onClick={handleDelete}>
+                <HiOutlineTrash />
+              </Button>
+            </>
+          )}
         </span>
+      </li>
+      {isTablet ? (
+        isOpening ? (
+          <div className={styles.modal}>
+            <div className={styles.card}>
+              <div className={styles['card__row']}>
+                <span className={styles['card__label']}>Task</span>
+                <span>{task.text}</span>
+              </div>
+
+              <div className={styles['card__row']}>
+                <span className={styles['card__label']}>Category</span>
+                <span className={`${styles.category} ${styles[`category--${task.category}`]}`}>{task.category}</span>
+              </div>
+
+              <div className={styles['card__row']}>
+                <span className={styles['card__label']}>Created Date</span>
+                <span>{formatDate(task.createdAt)}</span>
+              </div>
+
+              <div className={styles['card__row']}>
+                <span className={styles['card__label']}>Status</span>
+                <span>{task.isCompleted ? 'completed' : 'active'}</span>
+              </div>
+
+              <div className={styles['card__row']}>
+                <Button size='small' type='secondary' onClick={handleEdit} ref={editRef}>
+                  <HiOutlinePencil />
+                </Button>
+
+                <Button size='small' type='secondary' onClick={handleDelete}>
+                  <HiOutlineTrash />
+                </Button>
+              </div>
+            </div>
+          </div>
+        ) : (
+          ''
+        )
+      ) : (
+        ''
       )}
-
-      <span className={`${styles.category} ${styles[`category--${task.category}`]}`}>{task.category}</span>
-
-      <span>{formatDate(task.createdAt)}</span>
-
-      <span className={styles['list__item-operation']}>
-        <Button size='small' type='secondary' onClick={handleEdit} ref={editRef}>
-          <HiOutlinePencil />
-        </Button>
-
-        <Button size='small' type='secondary' onClick={handleDelete}>
-          <HiOutlineTrash />
-        </Button>
-      </span>
-    </li>
+    </>
   );
 }
 

@@ -98,6 +98,14 @@
 
 html {
   font-size: 62.5%;
+
+  @media screen and (max-width: 62.5em) {
+    font-size: 56.25%;
+  }
+
+  @media screen and (max-width: 48em) {
+    font-size: 50%;
+  }
 }
 
 *,

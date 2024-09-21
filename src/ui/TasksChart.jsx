@@ -63,12 +63,12 @@ function TasksChart() {
         <LineChart
           layout='horizontal'
           data={data}
-          margin={{
-            top: 20,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
+          // margin={{
+          //   top: 20,
+          //   right: 30,
+          //   left: 20,
+          //   bottom: 5,
+          // }}
         >
           <CartesianGrid strokeDasharray='1 1' />
           <Tooltip contentStyle={{ background: colors.background }} />

@@ -16,6 +16,10 @@
   & .recharts-cartesian-grid-vertical line {
     stroke: var(--color-grey-300);
   }
+
+  @media screen and (max-width: 62.5em) {
+    padding: 1.6rem;
+  }
 }
 
 .header {

@@ -4,7 +4,7 @@
   grid-template-rows: auto 1fr;
   height: 100vh;
 
-  @media screen and (max-width: 62.5em) {
+  @media screen and (max-width: 48em) {
     grid-template-columns: 20rem 1fr;
     grid-template-rows: auto auto 1fr;
   }

@@ -133,7 +133,7 @@ function TasksProvider({ children }) {
   // });
 
   const [tasks, setTasks] = useState(() => {
-    return JSON.parse(localStorage.getItem('tasks', fakeData));
+    return JSON.parse(localStorage.getItem('tasks')) || fakeData;
   });
 
   return (

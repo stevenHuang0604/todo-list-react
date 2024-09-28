@@ -58,40 +58,44 @@ function TasksChart() {
   return (
     <div className={styles.chart}>
       <h2 className={styles.header}>
-        Tasks from {data.at(0).label} &mdash; {data.at(-1).label}
+        {tasks.length ? `Tasks from ${data.at(0)?.label} \u2013 ${data.at(-1)?.label}` : 'No data available'}
       </h2>
 
-      <ResponsiveContainer height={300} width='100%'>
-        <LineChart
-          layout='horizontal'
-          data={data}
-          // margin={{
-          //   top: 20,
-          //   right: 30,
-          //   left: 20,
-          //   bottom: 5,
-          // }}
-        >
-          <CartesianGrid strokeDasharray='1 1' />
-          <Tooltip contentStyle={{ background: colors.background }} />
-          <XAxis dataKey='label' tick={{ fill: colors.text }} tickLine={{ stroke: colors.text }} />
-          <YAxis tick={{ fill: colors.text }} tickLine={{ stroke: colors.text }} />
-          <Line
-            dataKey='totalTasks'
-            type='monotone'
-            stroke={colors.totalTasks.stroke}
-            name='Total tasks'
-            strokeWidth={2}
-          />
-          <Line
-            dataKey='completedTasks'
-            type='monotone'
-            stroke={colors.completedTasks.stroke}
-            name='Completed tasks'
-            strokeWidth={2}
-          />
-        </LineChart>
-      </ResponsiveContainer>
+      {tasks.length ? (
+        <ResponsiveContainer height={300} width='100%'>
+          <LineChart
+            layout='horizontal'
+            data={data}
+            // margin={{
+            //   top: 20,
+            //   right: 30,
+            //   left: 20,
+            //   bottom: 5,
+            // }}
+          >
+            <CartesianGrid strokeDasharray='1 1' />
+            <Tooltip contentStyle={{ background: colors.background }} />
+            <XAxis dataKey='label' tick={{ fill: colors.text }} tickLine={{ stroke: colors.text }} />
+            <YAxis tick={{ fill: colors.text }} tickLine={{ stroke: colors.text }} />
+            <Line
+              dataKey='totalTasks'
+              type='monotone'
+              stroke={colors.totalTasks.stroke}
+              name='Total tasks'
+              strokeWidth={2}
+            />
+            <Line
+              dataKey='completedTasks'
+              type='monotone'
+              stroke={colors.completedTasks.stroke}
+              name='Completed tasks'
+              strokeWidth={2}
+            />
+          </LineChart>
+        </ResponsiveContainer>
+      ) : (
+        ''
+      )}
     </div>
   );
 }

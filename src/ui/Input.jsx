@@ -45,7 +45,7 @@ function Input() {
       id: self.crypto.randomUUID(),
     };
 
-    setTasks((tasks) => [...tasks, newTask]);
+    setTasks((prevTasks) => [newTask, ...prevTasks]);
     setInput('');
     setCategory(categoryOptions[0].value);
     // unfocus the input element

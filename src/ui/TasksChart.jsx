@@ -39,6 +39,8 @@ function TasksChart() {
     }
   });
 
+  data = data.sort((a, b) => new Date(a.label) - new Date(b.label));
+
   const colors = isDarkMode
     ? {
         totalTasks: { stroke: '#4f46e5', fill: '#4f46e5' },

@@ -2,7 +2,7 @@ import { useSearchParams } from 'react-router-dom';
 import styles from '../styles/Sort.module.css';
 
 function Sort({ options }) {
-  const [searchParams, setSearchParams] = useSearchParams('sort');
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const sort = searchParams.get('sort') || options[0].value;
 

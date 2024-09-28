@@ -37,7 +37,7 @@ function List() {
   if (currentFilter === 'completed') filteredTasks = tasks.filter((task) => task.isCompleted === true);
 
   // Sort tasks by current sort status
-  const sort = searchParams.get('sort') || 'createdAt-asc';
+  const sort = searchParams.get('sort') || 'createdAt-desc';
   const [field, direction] = sort.split('-');
   const modifier = direction === 'asc' ? 1 : -1;
   const sortedTasks = filteredTasks.sort((a, b) => {

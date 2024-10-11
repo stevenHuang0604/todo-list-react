@@ -21,11 +21,12 @@
 }
 
 .logo {
-  height: 9.6rem;
-  width: auto;
+  /* height: 9.6rem; */
+  width: 10rem;
+  aspect-ratio: auto;
 
   @media screen and (max-width: 48em) {
-    height: 8rem;
+    /* height: 8rem; */
   }
 }
 

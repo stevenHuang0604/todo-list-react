@@ -19,7 +19,7 @@ function Sort({ options }) {
   }
 
   return (
-    <select className={styles.sort} value={sort} onChange={handleChange}>
+    <select className={styles.sort} value={sort} onChange={handleChange} id='sort'>
       {options.map((option) => (
         <option value={option.value} key={option.value}>
           {option.label}

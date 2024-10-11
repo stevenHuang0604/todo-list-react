@@ -65,7 +65,7 @@ function List() {
         {sortedTasks.map((task) => (
           <ListItem task={task} key={task.id} />
         ))}
-        <div className={styles['cover-bar']}></div>
+        <li className={styles['cover-bar']}></li>
       </ul>
     </div>
   );

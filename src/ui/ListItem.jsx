@@ -97,6 +97,7 @@ function ListItem({ task }) {
         <button
           className={`${styles['list__item-checkbox']} ${task.isCompleted && styles['list__item-checkbox--completed']}`}
           onClick={handleComplete}
+          aria-label='complete button'
         >
           {task.isCompleted && <HiOutlineCheck />}
         </button>
@@ -131,16 +132,22 @@ function ListItem({ task }) {
 
         <span className={styles['list__item-operation']}>
           {isTablet ? (
-            <Button size='small' type='secondary' onClick={handleShowDetail} ref={editRef}>
+            <Button
+              size='small'
+              type='secondary'
+              onClick={handleShowDetail}
+              ref={editRef}
+              ariaLabel='toggle detail button'
+            >
               {isOpening ? <HiOutlineChevronUp /> : <HiOutlineChevronDown />}
             </Button>
           ) : (
             <>
-              <Button size='small' type='secondary' onClick={handleEdit} ref={editRef}>
+              <Button size='small' type='secondary' onClick={handleEdit} ref={editRef} ariaLabel='edit button'>
                 <HiOutlinePencil />
               </Button>
 
-              <Button size='small' type='secondary' onClick={handleDelete}>
+              <Button size='small' type='secondary' onClick={handleDelete} ariaLabel='delete button'>
                 <HiOutlineTrash />
               </Button>
             </>
@@ -171,11 +178,11 @@ function ListItem({ task }) {
             </div>
 
             <div className={styles['card__row']}>
-              <Button size='small' type='secondary' onClick={handleEdit} ref={editRef}>
+              <Button size='small' type='secondary' onClick={handleEdit} ref={editRef} ariaLabel='edit button'>
                 <HiOutlinePencil />
               </Button>
 
-              <Button size='small' type='secondary' onClick={handleDelete}>
+              <Button size='small' type='secondary' onClick={handleDelete} ariaLabel='delete button'>
                 <HiOutlineTrash />
               </Button>
             </div>

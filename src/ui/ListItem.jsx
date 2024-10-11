@@ -8,8 +8,7 @@ import {
 } from 'react-icons/hi2';
 import { useMediaQuery } from 'react-responsive';
 
-import { useTasks } from '../context/TasksContext';
-
+import { useTasks } from '../hooks/useTasks';
 import Button from './Button';
 
 import styles from '../styles/ListItem.module.css';

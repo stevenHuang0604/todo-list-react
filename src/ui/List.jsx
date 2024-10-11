@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 
-import { useTasks } from '../context/TasksContext';
+import { useTasks } from '../hooks/useTasks';
 
 import ListItem from './ListItem';
 

@@ -1,8 +1,7 @@
 import { useRef, useState } from 'react';
 import { HiOutlinePlus } from 'react-icons/hi2';
 
-import { useTasks } from '../context/TasksContext';
-
+import { useTasks } from '../hooks/useTasks';
 import Button from './Button';
 import Select from './Select';
 

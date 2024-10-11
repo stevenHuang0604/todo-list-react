@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useState } from 'react';
 
 const FilterContext = createContext({
   currentFilter: '',
@@ -20,11 +20,4 @@ function FilterProvider({ children }) {
   );
 }
 
-function useFilter() {
-  const context = useContext(FilterContext);
-
-  if (!context) throw new Error('FilterContext was used outside of FilterProvider');
-  return context;
-}
-
-export { useFilter, FilterProvider };
+export { FilterContext, FilterProvider };

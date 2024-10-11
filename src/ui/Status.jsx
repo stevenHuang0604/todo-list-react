@@ -1,4 +1,4 @@
-import { useTasks } from '../context/TasksContext';
+import { useTasks } from '../hooks/useTasks';
 
 import Button from './Button';
 import Filter from './Filter';

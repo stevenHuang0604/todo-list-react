@@ -1,4 +1,5 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useState } from 'react';
+
 import { fakeData } from '../data/fakeData';
 
 const TasksContext = createContext({
@@ -27,11 +28,4 @@ function TasksProvider({ children }) {
   );
 }
 
-function useTasks() {
-  const context = useContext(TasksContext);
-
-  if (!context) throw new Error('TasksContext was used outside of TasksProvider');
-  return context;
-}
-
-export { useTasks, TasksProvider };
+export { TasksContext, TasksProvider };

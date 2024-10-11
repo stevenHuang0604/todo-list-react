@@ -1,7 +1,7 @@
 import { CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 
-import { useTasks } from '../context/TasksContext';
-import { useDarkMode } from '../context/DarkModeContext';
+import { useTasks } from '../hooks/useTasks';
+import { useDarkMode } from '../hooks/useDarkMode';
 
 import styles from '../styles/TasksChart.module.css';
 

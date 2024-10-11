@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { HiOutlineMoon, HiOutlineSun } from 'react-icons/hi2';
 
-import { useDarkMode } from '../context/DarkModeContext';
+import { useDarkMode } from '../hooks/useDarkMode';
 
 import Button from './Button';
 

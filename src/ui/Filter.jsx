@@ -17,7 +17,7 @@ function Filter({ options }) {
       {options.map((option) => (
         <button
           className={`${styles['filter__button']} ${
-            currentFilter === option.value ? styles['filter__button--active'] : ''
+            currentFilter === option.value && styles['filter__button--active']
           }`}
           key={option.value}
           onClick={() => handleClick(option.value)}

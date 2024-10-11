@@ -33,8 +33,8 @@ function List() {
   const currentFilter = searchParams.get('status');
 
   let filteredTasks = tasks;
-  if (currentFilter === 'active') filteredTasks = tasks.filter((task) => task.isCompleted === false);
-  if (currentFilter === 'completed') filteredTasks = tasks.filter((task) => task.isCompleted === true);
+  if (currentFilter === 'active') filteredTasks = tasks.filter((task) => !task.isCompleted);
+  if (currentFilter === 'completed') filteredTasks = tasks.filter((task) => task.isCompleted);
 
   // Sort tasks by current sort status
   const sort = searchParams.get('sort') || 'createdAt-desc';
@@ -49,12 +49,10 @@ function List() {
   // Display filtered tasks through mapping ListItem.
   return (
     <div className={styles['list-wrap']}>
-      <header className={styles['list-header']}>
+      <div className={styles['list-header']}>
         <div>Status</div>
         <div>Task</div>
-        {isTablet ? (
-          ''
-        ) : (
+        {!isTablet && (
           <>
             <div>Category</div>
             <div>Created Date</div>{' '}
@@ -62,7 +60,7 @@ function List() {
         )}
 
         <div></div>
-      </header>
+      </div>
       <ul className={styles.list}>
         {sortedTasks.map((task) => (
           <ListItem task={task} key={task.id} />

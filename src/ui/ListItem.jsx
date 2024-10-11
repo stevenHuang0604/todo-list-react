@@ -10,6 +10,7 @@ import { useMediaQuery } from 'react-responsive';
 
 import { useTasks } from '../hooks/useTasks';
 import Button from './Button';
+import { formatDate } from '../helpers/formatDate';
 
 import styles from '../styles/ListItem.module.css';
 
@@ -30,28 +31,16 @@ function ListItem({ task }) {
     }
   }, [isEditing]);
 
-  function formatDate(date) {
-    date = new Date(date);
-    let year = date.getFullYear();
-    let month = date.getMonth() + 1;
-    let day = date.getDate();
-
-    if (month < 10) month = `0${month}`;
-    if (day < 10) day = `0${day}`;
-
-    return `${year}/${month}/${day}`;
-  }
-
   // Toggle the task completed or not
   function handleComplete() {
     setTasks((tasks) => {
       const newTasks = tasks.map((t) => {
-        if (t.id !== task.id) return t;
-
-        return {
-          ...t,
-          isCompleted: !t.isCompleted,
-        };
+        return t.id === task.id
+          ? {
+              ...t,
+              isCompleted: !t.isCompleted,
+            }
+          : t;
       });
       return newTasks;
     });
@@ -73,11 +62,12 @@ function ListItem({ task }) {
 
     setTasks((tasks) =>
       tasks.map((t) => {
-        if (t.id !== task.id) return t;
-        return {
-          ...t,
-          text: updatedTaskName,
-        };
+        return t.id === task.id
+          ? {
+              ...t,
+              text: updatedTaskName,
+            }
+          : t;
       })
     );
 
@@ -105,12 +95,10 @@ function ListItem({ task }) {
     <>
       <li className={styles['list__item']}>
         <button
-          className={`${styles['list__item-checkbox']} ${
-            task.isCompleted ? styles['list__item-checkbox--completed'] : ''
-          }`}
+          className={`${styles['list__item-checkbox']} ${task.isCompleted && styles['list__item-checkbox--completed']}`}
           onClick={handleComplete}
         >
-          {task.isCompleted ? <HiOutlineCheck /> : ''}
+          {task.isCompleted && <HiOutlineCheck />}
         </button>
 
         {isEditing ? (
@@ -121,23 +109,19 @@ function ListItem({ task }) {
               onChange={handleChangeTask}
               onBlur={handleBlur}
               ref={ref}
-              className={`${styles['list__item-input']} ${
-                task.isCompleted ? styles['list__item-text--completed'] : ''
-              }`}
+              className={`${styles['list__item-input']} ${task.isCompleted && styles['list__item-text--completed']}`}
             />
           </form>
         ) : (
           <span
             onDoubleClick={handleEdit}
-            className={`${styles['list__item-text']} ${task.isCompleted ? styles['list__item-text--completed'] : ''}`}
+            className={`${styles['list__item-text']} ${task.isCompleted && styles['list__item-text--completed']}`}
           >
             {task.text}
           </span>
         )}
 
-        {isTablet ? (
-          ''
-        ) : (
+        {!isTablet && (
           <>
             <span className={`${styles.category} ${styles[`category--${task.category}`]}`}>{task.category}</span>
 
@@ -163,46 +147,40 @@ function ListItem({ task }) {
           )}
         </span>
       </li>
-      {isTablet ? (
-        isOpening ? (
-          <div className={styles.modal}>
-            <div className={styles.card}>
-              <div className={styles['card__row']}>
-                <span className={styles['card__label']}>Task</span>
-                <span>{task.text}</span>
-              </div>
+      {isTablet && isOpening && (
+        <div className={styles.modal}>
+          <div className={styles.card}>
+            <div className={styles['card__row']}>
+              <span className={styles['card__label']}>Task</span>
+              <span>{task.text}</span>
+            </div>
 
-              <div className={styles['card__row']}>
-                <span className={styles['card__label']}>Category</span>
-                <span className={`${styles.category} ${styles[`category--${task.category}`]}`}>{task.category}</span>
-              </div>
+            <div className={styles['card__row']}>
+              <span className={styles['card__label']}>Category</span>
+              <span className={`${styles.category} ${styles[`category--${task.category}`]}`}>{task.category}</span>
+            </div>
 
-              <div className={styles['card__row']}>
-                <span className={styles['card__label']}>Created Date</span>
-                <span>{formatDate(task.createdAt)}</span>
-              </div>
+            <div className={styles['card__row']}>
+              <span className={styles['card__label']}>Created Date</span>
+              <span>{formatDate(task.createdAt)}</span>
+            </div>
 
-              <div className={styles['card__row']}>
-                <span className={styles['card__label']}>Status</span>
-                <span>{task.isCompleted ? 'completed' : 'active'}</span>
-              </div>
+            <div className={styles['card__row']}>
+              <span className={styles['card__label']}>Status</span>
+              <span>{task.isCompleted ? 'completed' : 'active'}</span>
+            </div>
 
-              <div className={styles['card__row']}>
-                <Button size='small' type='secondary' onClick={handleEdit} ref={editRef}>
-                  <HiOutlinePencil />
-                </Button>
+            <div className={styles['card__row']}>
+              <Button size='small' type='secondary' onClick={handleEdit} ref={editRef}>
+                <HiOutlinePencil />
+              </Button>
 
-                <Button size='small' type='secondary' onClick={handleDelete}>
-                  <HiOutlineTrash />
-                </Button>
-              </div>
+              <Button size='small' type='secondary' onClick={handleDelete}>
+                <HiOutlineTrash />
+              </Button>
             </div>
           </div>
-        ) : (
-          ''
-        )
-      ) : (
-        ''
+        </div>
       )}
     </>
   );

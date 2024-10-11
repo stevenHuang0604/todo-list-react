@@ -18,7 +18,7 @@ function Header() {
         <img src={src} alt='logo' className={styles.logo} />
       </Link>
       <h1 className={styles.title}>Todo List</h1>
-      <Button type='secondary' size='medium' onClick={toggleDarkMode}>
+      <Button type='secondary' size='medium' onClick={toggleDarkMode} ariaLabel='mode button'>
         {isDarkMode ? <HiOutlineSun /> : <HiOutlineMoon />}
       </Button>
     </header>

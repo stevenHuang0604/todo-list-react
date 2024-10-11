@@ -30,7 +30,7 @@ function Status() {
         ]}
       />
 
-      <Button type='primary' size='small' onClick={handleClear}>
+      <Button type='primary' size='small' onClick={handleClear} ariaLabel='clear button'>
         Clear All
       </Button>
     </div>

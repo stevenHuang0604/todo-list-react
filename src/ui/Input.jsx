@@ -64,7 +64,7 @@ function Input() {
 
       <Select options={categoryOptions} onChange={handleChange} value={category} />
 
-      <Button size='medium' type='primary'>
+      <Button size='medium' type='primary' ariaLabel='add button'>
         <HiOutlinePlus />
       </Button>
     </form>

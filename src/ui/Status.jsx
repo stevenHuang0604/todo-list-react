@@ -2,9 +2,9 @@ import { useTasks } from '../hooks/useTasks';
 
 import Button from './Button';
 import Filter from './Filter';
+import Sort from './Sort';
 
 import styles from '../styles/Status.module.css';
-import Sort from './Sort';
 
 function Status() {
   const { setTasks } = useTasks();

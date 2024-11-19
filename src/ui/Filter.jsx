@@ -8,8 +8,13 @@ function Filter({ options }) {
   const currentFilter = searchParams.get('status') || options[0].value;
 
   function handleClick(value) {
-    searchParams.set('status', value);
-    setSearchParams(searchParams);
+    // searchParams.set('status', value);
+    // setSearchParams(searchParams);
+
+    setSearchParams({
+      ...Object.fromEntries(searchParams),
+      status: value,
+    });
   }
 
   return (

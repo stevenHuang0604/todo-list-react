@@ -23,6 +23,18 @@ function List() {
   if (!taskLength)
     return (
       <div className={styles['list-wrap']}>
+        <div className={styles['list-header']}>
+          <div>Status</div>
+          <div>Task</div>
+          {!isTablet && (
+            <>
+              <div>Category</div>
+              <div>Created Date</div>{' '}
+            </>
+          )}
+
+          <div></div>
+        </div>
         <ul className={styles.list}>
           <span className={styles['list__empty']}>No item now. Please add some list items!</span>
         </ul>

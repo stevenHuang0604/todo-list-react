@@ -7,14 +7,15 @@ function Sort({ options }) {
   const sort = searchParams.get('sort') || options[0].value;
 
   function handleChange(e) {
-    // searchParams.set('sort', e.target.value);
-    // setSearchParams(searchParams);
+    // setSearchParams((prevParams) => {
+    //   const newParams = new URLSearchParams(prevParams);
+    //   newParams.set('sort', e.target.value);
+    //   return newParams;
+    // });
 
-    // Another method to udpate params.
-    setSearchParams((prevParams) => {
-      const newParams = new URLSearchParams(prevParams);
-      newParams.set('sort', e.target.value);
-      return newParams;
+    setSearchParams({
+      ...Object.fromEntries(searchParams),
+      sort: e.target.value,
     });
   }
 

@@ -24,7 +24,7 @@ function ListItem({ task }) {
   const ref = useRef();
   const editRef = useRef();
 
-  // Focus the input field when it first show in the browser
+  // Focus the task editing input field when it first show in the browser
   useEffect(() => {
     if (isEditing && ref.current) {
       ref.current.focus();
@@ -33,17 +33,16 @@ function ListItem({ task }) {
 
   // Toggle the task completed or not
   function handleComplete() {
-    setTasks((tasks) => {
-      const newTasks = tasks.map((t) => {
-        return t.id === task.id
+    setTasks((tasks) =>
+      tasks.map((t) =>
+        t.id === task.id
           ? {
               ...t,
               isCompleted: !t.isCompleted,
             }
-          : t;
-      });
-      return newTasks;
-    });
+          : t
+      )
+    );
   }
 
   // Edit the task
@@ -61,14 +60,14 @@ function ListItem({ task }) {
     e.preventDefault();
 
     setTasks((tasks) =>
-      tasks.map((t) => {
-        return t.id === task.id
+      tasks.map((t) =>
+        t.id === task.id
           ? {
               ...t,
               text: updatedTaskName,
             }
-          : t;
-      })
+          : t
+      )
     );
 
     setIsEditing(false);

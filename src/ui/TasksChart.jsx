@@ -22,8 +22,8 @@ function TasksChart() {
     } else {
       data[index] = {
         ...data[index],
-        totalTasks: data[index].totalTasks + 1,
-        completedTasks: t.isCompleted ? data[index].completedTasks + 1 : data[index].completedTasks,
+        totalTasks: ++data[index].totalTasks,
+        completedTasks: t.isCompleted ? ++data[index].completedTasks : data[index].completedTasks,
       };
     }
   });

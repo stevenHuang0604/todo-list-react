@@ -1,7 +1,6 @@
 .button {
   background: none;
   border: none;
-  /* border-radius: var(--border-radius-sm); */
   box-shadow: var(--shadow-sm);
 
   &:focus:not(:active) {

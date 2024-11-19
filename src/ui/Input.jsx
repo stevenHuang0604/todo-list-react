@@ -27,7 +27,7 @@ function Input() {
     setInput(e.target.value);
   }
 
-  function handleChange(e) {
+  function handleCategory(e) {
     setCategory(e.target.value);
   }
 
@@ -36,7 +36,7 @@ function Input() {
     if (input === '') return;
 
     const newTask = {
-      text: input,
+      text: input.trim(),
       category,
       isCompleted: false,
 
@@ -62,7 +62,7 @@ function Input() {
         ref={ref}
       />
 
-      <Select options={categoryOptions} onChange={handleChange} value={category} />
+      <Select options={categoryOptions} onChange={handleCategory} value={category} />
 
       <Button size='medium' type='primary' ariaLabel='add button'>
         <HiOutlinePlus />

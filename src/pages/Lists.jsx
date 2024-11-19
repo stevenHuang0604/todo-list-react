@@ -10,7 +10,7 @@ function Lists() {
   return (
     <>
       <Input />
-      {taskLength && <Status />}
+      {taskLength ? <Status /> : ''}
       <List />
     </>
   );

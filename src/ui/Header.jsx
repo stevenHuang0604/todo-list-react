@@ -14,8 +14,8 @@ function Header() {
 
   return (
     <header className={styles.header}>
-      <Link to='/lists' preventScrollReset={true}>
-        <img src={src} alt='logo' className={styles.logo} />
+      <Link to='/lists'>
+        <img src={src} alt='logo' />
       </Link>
       <h1 className={styles.title}>Todo List</h1>
       <Button type='secondary' size='medium' onClick={toggleDarkMode} ariaLabel='mode button'>

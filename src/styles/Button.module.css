@@ -62,7 +62,6 @@
 }
 
 .secondary {
-  /* color: var(--color-grey-600); */
   color: var(--color-indigo-700);
   border: 1px solid var(--color-grey-200);
 

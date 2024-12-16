@@ -40,8 +40,6 @@
 .list {
   height: 40rem;
 
-  /* margin: 0.4rem 0; */
-  /* border: 1px solid var(--color-grey-200); */
   border-radius: var(--border-radius-sm);
   box-shadow: var(--shadow-md);
 
@@ -49,9 +47,6 @@
   flex-direction: column;
 
   overflow-y: scroll;
-  /* overscroll-behavior-y: auto;
-  scroll-behavior: smooth;
-  scrollbar-gutter: stable both-edges; */
 }
 
 .list::-webkit-scrollbar {

@@ -76,6 +76,7 @@ function ListItem({ task }) {
   // Cancel editing mode
   function handleBlur(e) {
     // Check if the click is on the edit button
+    // event:blur    target: eventTarget losing focus relatedTarget: revetTarget receive focus
     if (e.relatedTarget !== editRef.current) {
       setIsEditing(false);
     }

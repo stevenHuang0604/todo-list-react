@@ -29,7 +29,7 @@ function List() {
           {!isTablet && (
             <>
               <div>Category</div>
-              <div>Created Date</div>{' '}
+              <div>Created Date</div>
             </>
           )}
 
@@ -67,7 +67,7 @@ function List() {
         {!isTablet && (
           <>
             <div>Category</div>
-            <div>Created Date</div>{' '}
+            <div>Created Date</div>
           </>
         )}
 

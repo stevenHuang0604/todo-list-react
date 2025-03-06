@@ -33,7 +33,7 @@ function Input() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (input === '') return;
+    if (!input.trim()) return;
 
     const newTask = {
       text: input.trim(),

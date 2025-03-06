@@ -5,6 +5,7 @@ const FilterContext = createContext({
   setCurrentFilter: () => {},
 });
 
+// Not used!
 function FilterProvider({ children }) {
   const [currentFilter, setCurrentFilter] = useState('');
 

@@ -10,6 +10,31 @@ function TasksChart() {
   const { tasks } = useTasks();
   const { isDarkMode } = useDarkMode();
 
+  // tasks structure
+  // [
+  //   {
+  //     text: 'cleaning kitchen',
+  //     category: 'personal',
+  //     isCompleted: false,
+  //     createdAt: '2024-09-20T08:36:38.937Z',
+  //     id: '3dbd1c20-2309-4744-aa91-1a843b7a6c6e',
+  //   },
+  // ];
+
+  // data retrieved from tasks should look like this
+  // [
+  //   {
+  //     label: '2024/09/15',
+  //     totalTasks: 2,
+  //     completedTasks: 1,
+  //   },
+  //   {
+  //     label: '2024/09/16',
+  //     totalTasks: 4,
+  //     completedTasks: 1,
+  //   },
+  // ];
+
   let data = [];
   tasks.forEach((t) => {
     const index = data.findIndex((d) => d.label === formatDate(t.createdAt));
@@ -52,16 +77,7 @@ function TasksChart() {
 
       {tasks.length ? (
         <ResponsiveContainer height={300} width='100%'>
-          <LineChart
-            layout='horizontal'
-            data={data}
-            // margin={{
-            //   top: 20,
-            //   right: 30,
-            //   left: 20,
-            //   bottom: 5,
-            // }}
-          >
+          <LineChart layout='horizontal' data={data}>
             <CartesianGrid strokeDasharray='1 1' />
             <Tooltip contentStyle={{ background: colors.background }} />
             <XAxis dataKey='label' tick={{ fill: colors.text }} tickLine={{ stroke: colors.text }} />

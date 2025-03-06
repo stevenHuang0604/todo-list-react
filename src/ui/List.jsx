@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { useMediaQuery } from 'react-responsive';
 
 import { useTasks } from '../hooks/useTasks';
 
@@ -11,7 +10,6 @@ import styles from '../styles/List.module.css';
 function List() {
   const { tasks } = useTasks();
   const [searchParams] = useSearchParams();
-  const isTablet = useMediaQuery({ query: '(max-width: 40em)' });
 
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -26,12 +24,9 @@ function List() {
         <div className={styles['list-header']}>
           <div>Status</div>
           <div>Task</div>
-          {!isTablet && (
-            <>
-              <div>Category</div>
-              <div>Created Date</div>
-            </>
-          )}
+
+          <div className={styles['isTablet']}>Category</div>
+          <div className={styles['isTablet']}>Created Date</div>
 
           <div></div>
         </div>
@@ -64,12 +59,9 @@ function List() {
       <div className={styles['list-header']}>
         <div>Status</div>
         <div>Task</div>
-        {!isTablet && (
-          <>
-            <div>Category</div>
-            <div>Created Date</div>
-          </>
-        )}
+
+        <div className={styles['isTablet']}>Category</div>
+        <div className={styles['isTablet']}>Created Date</div>
 
         <div></div>
       </div>

@@ -21,13 +21,13 @@ function ListItem({ task }) {
   const [isOpening, setIsOpening] = useState(false);
   const isTablet = useMediaQuery({ query: '(max-width: 40em)' });
 
-  const ref = useRef();
+  const inputRef = useRef();
   const editRef = useRef();
 
   // Focus the task editing input field when it first show in the browser
   useEffect(() => {
-    if (isEditing && ref.current) {
-      ref.current.focus();
+    if (isEditing && inputRef.current) {
+      inputRef.current.focus();
     }
   }, [isEditing]);
 
@@ -109,7 +109,7 @@ function ListItem({ task }) {
               value={updatedTaskName}
               onChange={handleChangeTask}
               onBlur={handleBlur}
-              ref={ref}
+              ref={inputRef}
               className={`${styles['list__item-input']} ${task.isCompleted && styles['list__item-text--completed']}`}
             />
           </form>

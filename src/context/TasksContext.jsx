@@ -8,10 +8,6 @@ const TasksContext = createContext({
 });
 
 function TasksProvider({ children }) {
-  // const [tasks, setTasks] = useState(() => {
-  //   return JSON.parse(localStorage.getItem('tasks')) || [];
-  // });
-
   const [tasks, setTasks] = useState(() => {
     return JSON.parse(localStorage.getItem('tasks')) || fakeData;
   });
